@@ -1,0 +1,9 @@
+{
+    "defaultSeverity": "error",
+    "jsRules": {},
+    "rules": {
+        "typedef": false,
+        "no-console": false
+    },
+    "rulesDirectory": []
+}

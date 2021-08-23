@@ -1,0 +1,25 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Node examples using TypeScript",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint --config tslint.json --project .",
+    "fixtures": "npx ts-node src/Fixtures/PblBlockchainFixture.ts"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.0.2",
+    "@types/node": "^10.11.4",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
+}
