@@ -1,0 +1,39 @@
+version: 3
+
+tasks:
+  generate:acc:n1:
+    desc: create account for node 1
+    cmds: 
+    - docker-compose exec node_1 /home/openethereum/openethereum account new
+
+  generate:acc:n2:
+    desc: Create account for node 2
+    cmds: 
+    - docker-compose exec node_2 /home/openethereum/openethereum account new
+
+  generate:acc:r1:
+    desc: Create account for rpc 1
+    cmds: 
+    - docker-compose exec rpc_1 /home/openethereum/openethereum account new
+
+  start:
+    desc: Run containers
+    cmds:
+      - docker-compose stop
+      - docker-compose up -d 
+
+  start:first:
+    desc: Setup env for first time
+    cmds:
+      - task: start
+      - task: generate:acc:n1
+      - task: generate:acc:n2
+      - task: generate:acc:r1
+
+  enode:
+    desc: Execute commands to show enode addresses for node containers
+    cmds:
+      - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8545"
+      - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8546" 
+      - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8547" 
+

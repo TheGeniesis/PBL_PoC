@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  node_1:
+    image: openethereum/openethereum:v3.2.6
+    restart: always
+    command:
+      --config /config/node_conf.toml
+    volumes:
+      - ./config:/config:ro
+      - ./chain-data_1:/home/openethereum/.local/share/io.parity.ethereum/
+
+  node_2:
+    image: openethereum/openethereum:v3.2.6
+    restart: always
+    command:
+      --config /config/node_conf.toml
+    volumes:
+      - ./config:/config:ro
+      - ./chain-data_2:/home/openethereum/.local/share/io.parity.ethereum/
+
+  rpc_1:
+    image: openethereum/openethereum:v3.2.6
+    restart: always
+    command:
+      --config /config/rpc_conf.toml
+    volumes:
+      - ./config:/config:ro
+      - ./chain-data_3:/home/openethereum/.local/share/io.parity.ethereum/
+  web:
+    image: nginx:stable
+    restart: always
+    depends_on:
+      - node_1
+      - node_2
+      - rpc_1
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "8547:8547"
+    volumes:
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
