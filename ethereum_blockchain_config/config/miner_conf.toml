@@ -1,0 +1,42 @@
+[parity]
+chain = "/config/chainspec.json"
+no_persistent_txqueue = true
+[rpc]
+disable = false
+port = 8545
+interface = "0.0.0.0"
+cors = [""]
+apis = ["eth", "net", "parity", "web3"]
+server_threads = 48
+[websockets]
+disable = true
+[ipc]
+disable = true
+[secretstore]
+disable = true
+[network]
+port = 30303
+min_peers = 1
+max_peers = 5
+discovery = true
+warp = false
+allow_ips = "all"
+snapshot_peers = 0
+max_pending_peers = 64
+reserved_peers = "/config/peers"
+[footprint]
+db_compaction = "ssd"
+[snapshots]
+enable = false
+[account]
+password = ["/config/password"]
+[mining]
+force_sealing = true
+usd_per_tx = "0.000000000000000001"
+usd_per_eth = "1"
+price_update_period = "hourly"
+min_gas_price = 1
+gas_cap = "8000000"
+gas_floor_target = "8000000"
+tx_gas_limit = "8000000"
+extra_data = "PBL VALIDATOR"

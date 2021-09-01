@@ -16,6 +16,11 @@ tasks:
     cmds: 
     - docker-compose exec rpc_1 /home/openethereum/openethereum account new
 
+  generate:acc:m1:
+    desc: Create account for miner 1
+    cmds: 
+    - docker-compose exec miner_1 /home/openethereum/openethereum account new
+
   start:
     desc: Run containers
     cmds:
@@ -29,6 +34,7 @@ tasks:
       - task: generate:acc:n1
       - task: generate:acc:n2
       - task: generate:acc:r1
+      - task: generate:acc:m1
 
   enode:
     desc: Execute commands to show enode addresses for node containers
@@ -36,4 +42,6 @@ tasks:
       - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8545"
       - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8546" 
       - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8547" 
+      - "curl --data '{\"jsonrpc\":\"2.0\",\"method\":\"parity_enode\",\"params\":[],\"id\":0}' -H \"Content-Type: application/json\" -X POST localhost:8548" 
+
 

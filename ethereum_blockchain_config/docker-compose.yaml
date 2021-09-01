@@ -26,6 +26,16 @@ services:
     volumes:
       - ./config:/config:ro
       - ./chain-data_3:/home/openethereum/.local/share/io.parity.ethereum/
+
+  miner_1:
+    image: openethereum/openethereum:v3.2.6
+    restart: always
+    command:
+      --config /config/miner_conf.toml
+    volumes:
+      - ./config:/config:ro
+      - ./chain-data_4:/home/openethereum/.local/share/io.parity.ethereum/
+
   web:
     image: nginx:stable
     restart: always
@@ -37,5 +47,6 @@ services:
       - "8545:8545"
       - "8546:8546"
       - "8547:8547"
+      - "8548:8548"
     volumes:
       - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
