@@ -45,8 +45,10 @@ module.exports = {
      host: "localhost",     // Localhost (default: none)
      port: 8548,            // Standard Ethereum port (default: none)
      network_id: "8995",       // Any network (default: none)
-     from: "0x59b804e0ac195574f9c75b4a8d1db7d093240cbe",        // Account to send txs from (default: accounts[0])
-     gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
+     from: "0x900fca7ae9452ced9e460a60f92b5a4f3e7ecc2d",        // Account to send txs from (default: accounts[0])
+    //  gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
+     production: false    // Treats this network as if it was a public net. (default: false)
+
     },
     // Another network with more advanced options...
     // advanced: {
