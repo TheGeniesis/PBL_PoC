@@ -4,7 +4,7 @@ services:
     image: openethereum/openethereum:v3.2.6
     restart: always
     command:
-      --config /config/node_conf.toml
+      --config /config/node_1_conf.toml
     volumes:
       - ./config:/config:ro
       - ./chain-data_1:/home/openethereum/.local/share/io.parity.ethereum/
@@ -13,7 +13,7 @@ services:
     image: openethereum/openethereum:v3.2.6
     restart: always
     command:
-      --config /config/node_conf.toml
+      --config /config/node_2_conf.toml
     volumes:
       - ./config:/config:ro
       - ./chain-data_2:/home/openethereum/.local/share/io.parity.ethereum/

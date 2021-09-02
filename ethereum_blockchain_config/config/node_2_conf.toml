@@ -30,3 +30,4 @@ db_compaction = "ssd"
 enable = false
 [account]
 password = ["/config/password"]
+unlock = ["0x9b051395699be4e8956f20bc48089b13ad060bbd"]

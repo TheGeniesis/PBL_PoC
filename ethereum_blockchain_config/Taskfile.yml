@@ -4,22 +4,22 @@ tasks:
   generate:acc:n1:
     desc: create account for node 1
     cmds: 
-    - docker-compose exec node_1 /home/openethereum/openethereum account new
+    - docker-compose exec node_1 /home/openethereum/openethereum account new --chain /config/chainspec.json --keys-path /home/openethereum/.local/share/io.parity.ethereum/keys
 
   generate:acc:n2:
     desc: Create account for node 2
     cmds: 
-    - docker-compose exec node_2 /home/openethereum/openethereum account new
+    - docker-compose exec node_2 /home/openethereum/openethereum account new --chain /config/chainspec.json --keys-path /home/openethereum/.local/share/io.parity.ethereum/keys
 
   generate:acc:r1:
     desc: Create account for rpc 1
     cmds: 
-    - docker-compose exec rpc_1 /home/openethereum/openethereum account new
+    - docker-compose exec rpc_1 /home/openethereum/openethereum account new --chain /config/chainspec.json --keys-path /home/openethereum/.local/share/io.parity.ethereum/keys
 
   generate:acc:m1:
     desc: Create account for miner 1
     cmds: 
-    - docker-compose exec miner_1 /home/openethereum/openethereum account new
+    - docker-compose exec miner_1 /home/openethereum/openethereum account new --chain /config/chainspec.json --keys-path /home/openethereum/.local/share/io.parity.ethereum/keys
 
   start:
     desc: Run containers

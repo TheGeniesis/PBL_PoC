@@ -6,7 +6,7 @@ disable = false
 port = 8545
 interface = "0.0.0.0"
 cors = ["all"]
-apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+apis = ["eth", "net", "parity"]
 server_threads = 48
 [websockets]
 disable = true
@@ -30,4 +30,4 @@ db_compaction = "ssd"
 enable = false
 [account]
 password = ["/config/password"]
-unlock = ["0xc323e30dd5b40b7df1309ec37187bc0e711c93d8"]
+unlock = ["0xc8216b4a032aabbd46630a98ff4387427b36cd39"]
