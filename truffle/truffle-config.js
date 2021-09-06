@@ -40,14 +40,15 @@ module.exports = {
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
-    
+
     development: {
      host: "localhost",     // Localhost (default: none)
      port: 8548,            // Standard Ethereum port (default: none)
      network_id: "8995",       // Any network (default: none)
      from: "0x900fca7ae9452ced9e460a60f92b5a4f3e7ecc2d",        // Account to send txs from (default: accounts[0])
-    //  gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
-     production: true    // Treats this network as if it was a public net. (default: false)
+     gas: 10,           // Gas sent with each transaction (default: ~6700000)
+     production: true,    // Treats this network as if it was a public net. (default: false)
+     defaultEtherBalance: 50000
 
     },
     // Another network with more advanced options...
@@ -85,7 +86,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.0",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -104,7 +105,7 @@ module.exports = {
   // NOTE: It is not possible to migrate your contracts to truffle DB and you should
   // make a backup of your artifacts to a safe location before enabling this feature.
   //
-  // After you backed up your artifacts you can utilize db by running migrate as follows: 
+  // After you backed up your artifacts you can utilize db by running migrate as follows:
   // $ truffle migrate --reset --compile-all
   //
   // db: {
