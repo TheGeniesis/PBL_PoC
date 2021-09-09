@@ -5,7 +5,7 @@ no_persistent_txqueue = true
 disable = false
 port = 8545
 interface = "0.0.0.0"
-cors = [""]
+cors = ["*"]
 apis = ["eth", "net", "parity", "web3"]
 server_threads = 48
 [websockets]

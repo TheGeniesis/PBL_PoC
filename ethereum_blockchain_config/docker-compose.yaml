@@ -35,6 +35,8 @@ services:
     volumes:
       - ./config:/config:ro
       - ./chain-data_4:/home/openethereum/.local/share/io.parity.ethereum/
+    ports:
+      - 1234:8545
 
   web:
     image: nginx:stable
