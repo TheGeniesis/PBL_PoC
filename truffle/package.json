@@ -1,5 +1,5 @@
 {
-  "name": "Trufle",
+  "name": "Truffle",
   "version": "1.0.0",
   "description": "Node examples using TypeScript",
   "scripts": {
@@ -8,8 +8,8 @@
     "migrate": "npx ts-node src/Fixtures/PblBlockchainFixture.ts",
     "truffle:compile": "truffle compile",
     "truffle:init": "truffle init",
-    "truffle:migrate": "truffle migrate --network development",
-    "t":"truffle console --network development"
+    "truffle:migrate": "truffle migrate --network pbl",
+    "t": "truffle console --network pbl"
   },
   "devDependencies": {
     "@types/node": "^10.11.4",
@@ -23,7 +23,8 @@
     }
   },
   "dependencies": {
+    "@truffle/hdwallet-provider": "^1.5.0",
     "crypto-js": "^4.1.1",
-    "truffle": "^5.4.8"
+    "truffle": "^5.0.5"
   }
 }
